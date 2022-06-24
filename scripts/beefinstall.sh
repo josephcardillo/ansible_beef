@@ -18,7 +18,7 @@ set -e
 #<UDF name="domain" label="Domain" example="The domain for the DNS record: example.com (Requires API token)" default="">
 
 # git repo
-export GIT_REPO=""
+export GIT_REPO="https://github.com/josephcardillo/ansible_beef.git"
 
 # constants
 readonly VARS_PATH="./group_vars/beef/vars"
@@ -36,12 +36,12 @@ function setup {
   #  curl -sH "Content-Type: application/json" -H "Authorization: Bearer ${TOKEN_PASSWORD}" https://api.linode.com/v4/profile/sshkeys | jq -r .data[].ssh_key > /root/.ssh/authorized_keys
   #fi
   # clone repo and set up ansible environment
-  git clone ${GIT_REPO} /tmp/sudo-user || echo "[FATAL] unable to pull repo" && exit 1
+  git clone ${GIT_REPO} /tmp/beef || echo "[FATAL] unable to pull repo" && exit 1
   cd /tmp/beef
-  pip3 install virtualenv
-  python3 -m virtualenv env
-  source env/bin/activate
-  pip install pip --upgrade
+  # pip3 install virtualenv
+  # python3 -m virtualenv env
+  # source env/bin/activate
+  # pip install pip --upgrade
   # pip install -r requirements.txt
   # ansible-galaxy install -r collections.yml
   # copy run script to path

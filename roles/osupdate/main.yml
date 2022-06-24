@@ -1,0 +1,10 @@
+---
+- name: Update repository cache
+  apt:
+    update_cache: yes
+    cache_valid_time: 3600
+
+- name: Upgrade all apt packages to their latest version
+  apt:
+    name: "*"
+    state: latest

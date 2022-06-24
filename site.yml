@@ -1,0 +1,6 @@
+---
+- name: "Install beef"
+  hosts: localhost
+  roles:
+    - firewall
+    - osupdate

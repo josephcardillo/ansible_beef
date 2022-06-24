@@ -1,0 +1,26 @@
+- name: "install firewalld"
+  apt:
+    name: firewalld
+    state: present
+
+- name: "open port 80 in firewalld"
+  firewalld:
+    service: http
+    permanent: true
+    state: enabled
+
+- name: "open port 443 in firewalld"
+  firewalld:
+    service: https
+    permanent: true
+    state: enabled
+
+- name: "open port 3000 in firewalld"
+  firewalld:
+    service: beef
+    permanent: true
+    state: enabled
+
+- name: "restart firewalld service"
+  service:
+    name: firewalld

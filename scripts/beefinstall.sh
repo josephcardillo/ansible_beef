@@ -49,28 +49,7 @@ function setup {
   chmod +x /usr/local/bin/run
 }
 
-function assign_udf_vars {
-  # write vars file
-  sed 's/  //g' <<EOF > ${VARS_PATH}
-  # linode vars
-  # sudo user
-  beefpassword: ${BEEFPASSWORD}
-  soa_email_address: ${SOA_EMAIL_ADDRESS}
-  username: ${USERNAME}
-  password: ${PASSWORD}
-  pubkey: ${PUBKEY}
-  disable_root: ${DISABLE_ROOT}
-  token_password: ${TOKEN_PASSWORD}
-  subdomain: ${SUBDOMAIN}
-  domain: ${DOMAIN}
-EOF
-}
-
-function run_playbook {
-  ansible-playbook -vvv site.yml
-}
-
 # main
 setup
-assign_udf_vars
-run_playbook && export SUCCESS="true"
+run assign_udf_vars
+run run_playbook && export SUCCESS="true"

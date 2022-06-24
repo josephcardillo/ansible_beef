@@ -45,7 +45,7 @@ function setup {
   # pip install -r requirements.txt
   # ansible-galaxy install -r collections.yml
   # copy run script to path
-  cp scripts/run.sh /usr/local/bin/run
+  cp scripts/beefinstall.sh /usr/local/bin/run
   chmod +x /usr/local/bin/run
 }
 
